@@ -57,7 +57,7 @@ public class VillageManager : MonoBehaviour
         {
             LoginCanvas.SetActive(false);
             SpawnPlayer();
-            SynchronizeDBtoCash();
+            SynchronizeDBtoCache();
             InventoryController.Instance.SetPlayerInventory();
             return;
         }
@@ -113,7 +113,7 @@ public class VillageManager : MonoBehaviour
     /// Firebase Sync Util
     /// </summary>
     // Firebase 
-    public void SynchronizeDBtoCash()
+    public void SynchronizeDBtoCache()
     {
         //Firebase variable
         var auth = FirebaseManager.Instance.Auth;
@@ -127,22 +127,22 @@ public class VillageManager : MonoBehaviour
         GetPlayerNickname(auth, db, user);
 
         // Synchronize PlayerStatus
-        PlayerStatusDBtoCash(auth, db, user);
+        PlayerStatusDBtoCache(auth, db, user);
 
         // Synchronize PlayerQuest
-        //QuestDBtoCash(auth, db, user);
+        //QuestDBtoCache(auth, db, user);
         
         // Synchronize money 
-        MoneyDBtoCash(auth, db, user);
+        MoneyDBtoCache(auth, db, user);
         
         // Synchronize PlayerInventory 
-        InventoryDBtoCash(auth, db, user);
+        InventoryDBtoCache(auth, db, user);
         
         // Synchronize Weapon DB
-        EquippedItemDBtoCash(auth, db, user);
+        EquippedItemDBtoCache(auth, db, user);
         
         // Synchronize WareHouse DB
-        WareHouseDBtoCash(auth, db, user);
+        WareHouseDBtoCache(auth, db, user);
     }
 
     private void OnApplicationQuit()
@@ -158,22 +158,22 @@ public class VillageManager : MonoBehaviour
         }
 
         // Synchronize PlayerStatus
-        PlayerStatusCashtoDB(auth, db, user);
+        PlayerStatusCachetoDB(auth, db, user);
 
         // Synchronize PlayerQuest
-        //QuestCashtoDB(auth, db, user);
+        //QuestCachetoDB(auth, db, user);
 
         // Synchronize money 
-        MoneyCashtoDB(auth, db, user);
+        MoneyCachetoDB(auth, db, user);
 
         // Synchronize PlayerInventory 
-        InventoryCashtoDB(auth, db, user);
+        InventoryCachetoDB(auth, db, user);
 
         // Synchronize Weapon DB
-        EquippedItemCashtoDB(auth, db, user);
+        EquippedItemCachetoDB(auth, db, user);
 
         // Synchronize WareHouse DB
-        WareHouseCashtoDB(auth, db, user);
+        WareHouseCachetoDB(auth, db, user);
     }
 
     //Get UserNickname
@@ -201,7 +201,7 @@ public class VillageManager : MonoBehaviour
 
     // PlayerStatus Sync
     #region PlayerStatus
-    public void PlayerStatusDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void PlayerStatusDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         DocumentReference StatusRef = db.Collection("Users")
                                              .Document(user.UserId)
@@ -245,7 +245,7 @@ public class VillageManager : MonoBehaviour
         });
     }
 
-    public void PlayerStatusCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void PlayerStatusCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         VillageManager.Status currentStatus = PlayerStatusController.Instance.GetPlayerStatus();
 
@@ -280,7 +280,7 @@ public class VillageManager : MonoBehaviour
 
     //PlayerQuest Sync
     #region PlayerQuest
-    public void QuestCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void QuestCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         CollectionReference questCollection = db.Collection("Users").Document(user.UserId).Collection("Quests");
 
@@ -289,7 +289,7 @@ public class VillageManager : MonoBehaviour
         {
             if (deleteTask.IsFaulted)
             {
-                Debug.LogError("QuestCashtoDB 실패: " + deleteTask.Exception);
+                Debug.LogError("QuestCachetoDB 실패: " + deleteTask.Exception);
             }
             else
             {
@@ -334,7 +334,7 @@ public class VillageManager : MonoBehaviour
         });
     }
 
-    public void QuestDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void QuestDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         QuestManager.Instance.playerQuestList.Clear();
         CollectionReference questCollection = db.Collection("Users").Document(user.UserId).Collection("Quests");
@@ -376,7 +376,7 @@ public class VillageManager : MonoBehaviour
 
     // Money Sync
     #region Money
-    public void MoneyDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void MoneyDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         DocumentReference moneyRef = db.Collection("Users").Document(user.UserId);
         moneyRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
@@ -401,7 +401,7 @@ public class VillageManager : MonoBehaviour
         });
     }
 
-    public void MoneyCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void MoneyCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         DocumentReference moneyRef = db.Collection("Users").Document(user.UserId);
         Dictionary<string, object> moneyData = new Dictionary<string, object>()
@@ -421,7 +421,7 @@ public class VillageManager : MonoBehaviour
 
     //Inventory sync
     #region Inventory
-    public void InventoryDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void InventoryDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         CollectionReference inventoryRef = db.Collection("Users")
                                              .Document(user.UserId)
@@ -454,12 +454,12 @@ public class VillageManager : MonoBehaviour
         });
     }
 
-    public void InventoryCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void InventoryCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         //InventoryController.Instance.inventory -> VillageManager.inventory
         foreach (Item item in InventoryController.Instance.inventory)
         {
-            AddItemToVillageManagerCashList(inventory, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
+            AddItemToVillageManagerCacheList(inventory, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
         }
 
         CollectionReference inventoryRef = db.Collection("Users")
@@ -549,7 +549,7 @@ public class VillageManager : MonoBehaviour
 
     //Inventory, warehouse func
     #region Inventory_warehouse_func
-    public void AddItemToVillageManagerCashList(List<DBItem> list, string itemName, string itemType, int addQuantity = 1, float addDurability = 1f)
+    public void AddItemToVillageManagerCacheList(List<DBItem> list, string itemName, string itemType, int addQuantity = 1, float addDurability = 1f)
     {
         Debug.Log($"itemType {itemType}");
         if (itemType.Equals("Equipment"))
@@ -601,7 +601,7 @@ public class VillageManager : MonoBehaviour
 
     // EquippedItemDB
     #region EquippedItem
-    public void EquippedItemDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void EquippedItemDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         CollectionReference equippedRef = db.Collection("Users")
                                              .Document(user.UserId)
@@ -634,12 +634,12 @@ public class VillageManager : MonoBehaviour
         });
     }
 
-    public void EquippedItemCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void EquippedItemCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         if(InventoryController.Instance.weaponPanel.GetWeaponItemIcon() != null)
         {
             Item item = InventoryController.Instance.weaponPanel.GetWeaponItemIcon().item;
-            AddItemToVillageManagerCashList(equippedItemList, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
+            AddItemToVillageManagerCacheList(equippedItemList, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
         }
    
 
@@ -733,12 +733,12 @@ public class VillageManager : MonoBehaviour
 
     // WareHouseDB Sync
     #region WarehouseDB
-    public void WareHouseCashtoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void WareHouseCachetoDB(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         //InventoryController.Instance.warehouse -> VillageManager.warehouseList
         foreach (Item item in InventoryController.Instance.wareHouse)
         {
-            AddItemToVillageManagerCashList(wareHouseList, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
+            AddItemToVillageManagerCacheList(wareHouseList, item.itemData.name, item.itemData.itemType.ToString(), item.quantity, item.durability);
         }
 
         CollectionReference inventoryRef = db.Collection("Users")
@@ -828,7 +828,7 @@ public class VillageManager : MonoBehaviour
     }
 
 
-    public void WareHouseDBtoCash(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
+    public void WareHouseDBtoCache(FirebaseAuth auth, FirebaseFirestore db, FirebaseUser user)
     {
         CollectionReference inventoryRef = db.Collection("Users")
                                              .Document(user.UserId)

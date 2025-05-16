@@ -41,7 +41,7 @@ public class Forge : MonoBehaviour
 
         ItemName.text = curItem.itemData.name;
         DurabilitySlider.value = curItem.durability / curItem.itemData.maxItemDurability;
-        cost = 100 * (int)(100 - 100*DurabilitySlider.value);
+        cost = 10 * (int)(100 - 100*DurabilitySlider.value);
         RepairCost.text = cost + " Gold";
 
         int curMoney = InventoryController.Instance.money;
@@ -72,7 +72,7 @@ public class Forge : MonoBehaviour
         InventoryController.Instance.SetMoney();
 
         DurabilitySlider.value = curItem.durability / curItem.itemData.maxItemDurability;
-        cost = 100 * (int)(100 - 100 * DurabilitySlider.value);
+        cost = 10 * (int)(100 - 100 * DurabilitySlider.value);
         RepairCost.text = cost + " Gold";
         //Debug.Log($"After Repair Money : {InventoryController.Instance.money}");
     }

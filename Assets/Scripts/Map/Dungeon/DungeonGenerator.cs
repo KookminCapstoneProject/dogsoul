@@ -400,31 +400,41 @@ abstract public class DungeonGenerator : Singleton<DungeonGenerator>
     {
         if(room2.dungeonPartType == DungeonPart.DungeonPartType.SpecialRoom)
         {
+            Debug.Log("1");
             if (room2.HasAvailableEntryPoint(out Transform room2EntryPoint))
             {
+                Debug.Log("2");
                 AlignRooms(room2.transform, room1EntryPoint, room2EntryPoint);
                 if (HandleIntersection(room2))
                 {
                     room2.UnuseEntrypoint(room2EntryPoint);
                 }
                 else { return true; }
+                Debug.Log("3");
 
                 foreach (Transform entryPoint in room2.entryPoints)
                 {
                     AlignRooms(room2.transform, room1EntryPoint, entryPoint);
-                    if (!HandleIntersection(room2)) { return true; }
+                    if (!HandleIntersection(room2)) { 
+                        entryPoint.GetComponent<EntryPoint>().SetOccupied(true);
+                        return true; }
                 }
+                Debug.Log("4");
             }
         }
         else
         {
             if(room2.HasAvailableEntryPointTrapRoom2(out Transform room2EntryPoint)){
+                Debug.Log("5");
                 AlignRooms(room2.transform, room1EntryPoint, room2EntryPoint);
                 if (HandleIntersection(room2))
                 {
                     room2.UnuseEntrypoint(room2EntryPoint);
+                    Debug.Log("6");
                 }
-                else { return true; }
+                else {
+                    Debug.Log("7");
+                    return true; }
             }
         }
         

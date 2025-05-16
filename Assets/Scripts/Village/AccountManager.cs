@@ -129,7 +129,7 @@ public class AccountManager : MonoBehaviour
                     {
                         Debug.Log("Firestore에 유저 정보 저장 완료!");
                         VillageManager.GetComponent<VillageManager>().SpawnPlayer();
-                        VillageManager.GetComponent<VillageManager>().SynchronizeDBtoCash();
+                        VillageManager.GetComponent<VillageManager>().SynchronizeDBtoCache();
                     }
                 });
             });
@@ -184,7 +184,7 @@ public class AccountManager : MonoBehaviour
                     Debug.Log($"Sign in success! UID: {user.UserId}");
                     FirebaseManager.Instance.isLoginComplete = true;
                     VillageManager.GetComponent<VillageManager>().SpawnPlayer();
-                    VillageManager.GetComponent<VillageManager>().SynchronizeDBtoCash();
+                    VillageManager.GetComponent<VillageManager>().SynchronizeDBtoCache();
                 }
             });     
     }

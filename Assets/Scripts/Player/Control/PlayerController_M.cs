@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using PlayerControl;
-using RPGCharacterAnims.Lookups;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;

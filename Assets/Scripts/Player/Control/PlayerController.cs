@@ -7,7 +7,6 @@ using PlayerControl;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using RPGCharacterAnims.Lookups;
 
 namespace PlayerControl
 {

@@ -34,12 +34,13 @@ abstract public class BossController : MonoBehaviour
     protected NavMeshAgent agent;
     protected NavMeshPath path;
     protected DamageCollider damageCollider;
+    protected EnemyDetection enemyDetection;
 
-    float distance = Mathf.Infinity;
-    private int attackPatternNo = 0;
-    private int rangedPatternNo = 0;
-    private float attackCoolDelta = 0;
-    private float rangedCoolDelta = 0;
+    protected float distance = Mathf.Infinity;
+    protected int attackPatternNo = 0;
+    protected int rangedPatternNo = 0;
+    protected float attackCoolDelta = 0;
+    protected float rangedCoolDelta = 0;
 
     protected virtual void Awake()
     {
@@ -47,21 +48,31 @@ abstract public class BossController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         damageCollider = GetComponentInChildren<DamageCollider>();
         enemyState = GetComponent<EnemyState>();
+        enemyDetection = GetComponent<EnemyDetection>();
         path = new NavMeshPath();
 
         agent.speed = basicSpeed;
     }
 
-    private void Start()
+    protected void Start()
     {
         spawnPosition = transform.position;
 
     }
 
-    void Update()
+    protected void Update()
     {
+        
         if (animator.GetBool("IsInteracting")) return;
+        if (target == null)
+        {
+            //Find closest player
+            target = enemyDetection.GetClosestPlayer();
+            if (target == null) return;
+        }
         float distanceToPlayer = CalculDistance();
+        
+
 
         if (distanceToPlayer < attackDistance)
         {
@@ -100,7 +111,7 @@ abstract public class BossController : MonoBehaviour
         }
     }
 
-    private float CalculDistance()
+    protected float CalculDistance()
     {
         if (agent.CalculatePath(target.position, path))
         {
@@ -113,7 +124,7 @@ abstract public class BossController : MonoBehaviour
         return distance;
     }
 
-    private void Chase()
+    protected void Chase()
     {
         agent.isStopped = false;
         agent.SetDestination(target.position);
@@ -122,7 +133,7 @@ abstract public class BossController : MonoBehaviour
         animator.SetBool("Following", true);
     }
 
-    private void Attack()
+    protected void Attack()
     {
         transform.LookAt(target);
 
@@ -158,7 +169,7 @@ abstract public class BossController : MonoBehaviour
     #endregion
 
     #region Ranged Attack
-    private void RangedAttack()
+    protected void RangedAttack()
     {
         transform.LookAt(target);
 
@@ -188,8 +199,8 @@ abstract public class BossController : MonoBehaviour
     {
         rangedCoolDelta = rangedCool;
     }
-
-    IEnumerator JumpCorutine()
+    
+    protected IEnumerator JumpCorutine()
     {
         Vector3 startPos = transform.position;
         Vector3 targetPos = target.position;
@@ -218,7 +229,7 @@ abstract public class BossController : MonoBehaviour
         yield return new WaitForSeconds(3f);
     }
 
-    void OnLand()
+    protected void OnLand()
     {
         float damageRadius = 10f;
         animator.SetBool("IsInteracting", true);

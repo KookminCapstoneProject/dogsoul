@@ -14,7 +14,8 @@ public class ChestItemPanel : ItemPanel
     public override void InsertItem(ItemIcon itemIcon)
     {
         base.InsertItem(itemIcon);
-        warehaouse.itemList.Add(itemIcon.item);
+        InventoryController.Instance.wareHouse.Add(itemIcon.item);
+        //warehaouse.itemList.Add(itemIcon.item);
     }
     public override void TakeOutItem(ItemPanel itemPanel, ItemIcon itemIcon)
     {

@@ -468,6 +468,9 @@ public class InventoryController : Singleton<InventoryController>
     public void LoadWareHouseItem(VillageManager.DBItem wareHouseItem)
     {
         Debug.Log($"아이템 로드중... {wareHouseItem.itemName}");
+        Item item = new Item(Resources.Load<ItemData>($"ItemData/{wareHouseItem.itemName}"), wareHouseItem.quantity, wareHouseItem.durability);
+        ItemIcon itemIcon = GetCreateItemIcon(item);
+        chestItemPanel.InsertItem(itemIcon);
         //TODO create itemIcon
         //TODO insert InventoryPanel
     }
@@ -570,11 +573,11 @@ public class InventoryController : Singleton<InventoryController>
         chestItemPanel.gameObject.SetActive(true);
         chestItemPanel.SetWarehouse(warehouse);
         //dropItemPanel.gameObject.SetActive(false);
-        foreach(Item item in itemList)
+        /*foreach(Item item in itemList)
         {
             CreateItemIcon(item);
             chestItemPanel.InsertItem(item.itemIcon);
-        }
+        }*/
     }
 
     public void DisableChestItempanel()
