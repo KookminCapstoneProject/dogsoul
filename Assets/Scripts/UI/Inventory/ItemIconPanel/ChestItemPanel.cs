@@ -15,6 +15,11 @@ public class ChestItemPanel : ItemPanel
     {
         base.InsertItem(itemIcon);
         InventoryController.Instance.wareHouse.Add(itemIcon.item);
+        if(itemIcon.dropItem != null)
+        {
+            InventoryController.Instance.RemoveDropItem(itemIcon.dropItem.GetComponent<DropItem>());
+            itemIcon.dropItem = null;
+        }
         //warehaouse.itemList.Add(itemIcon.item);
     }
     public override void TakeOutItem(ItemPanel itemPanel, ItemIcon itemIcon)

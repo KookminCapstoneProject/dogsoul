@@ -42,6 +42,7 @@ public class SceneController : Singleton<SceneController>
     {
         nextSceneName = sceneName;
         UIFadeController.Instance.FadeToBlack(LoadSceneRoutine);
+        InventoryController.Instance.AllClearDropItem();
         //StartCoroutine(LoadSceneRoutine(sceneName));
     }
 
@@ -62,6 +63,10 @@ public class SceneController : Singleton<SceneController>
         SceneManager.LoadScene(nextSceneName);
         currentScene = SceneManager.GetActiveScene();
         UIFadeController.Instance.FadeToClear();
+        PlayerStatusController.Instance.deadPanel.fadeOutPanel.color = new Color(PlayerStatusController.Instance.deadPanel.fadeOutPanel.color.r,
+            PlayerStatusController.Instance.deadPanel.fadeOutPanel.color.g,
+            PlayerStatusController.Instance.deadPanel.fadeOutPanel.color.b,
+            0);
     }
 
     

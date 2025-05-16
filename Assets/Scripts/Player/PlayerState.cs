@@ -19,16 +19,7 @@ public class PlayerState : Singleton<PlayerState>
         base.Awake();
         state = State.Idle;
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ChangeState(State state)
     {
         if (this.state == State.Die)
@@ -47,8 +38,10 @@ public class PlayerState : Singleton<PlayerState>
                 break;
             case State.Die:
                 this.state = State.Die;
+                Debug.Log($"State Change Death test");
                 InventoryController.Instance.SetInventoryCanvas();
                 InventoryController.Instance.AllClearInventory();
+                PlayerStatusController.Instance.deadPanel.SetDeath();
                 //PlayerStatusController.Instance.
                 break;
             default:

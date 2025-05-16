@@ -443,6 +443,7 @@ namespace PlayerControl
         {
             if (_input.attack)
             {
+                if(PlayerState.Instance.GetCurrentState() != PlayerState.State.Idle) { return; }
                 WeaponStats weapon = InventoryController.Instance.weaponPanel.GetWeapon();
                 print(weapon);
                 _input.attack = false;

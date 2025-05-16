@@ -50,7 +50,7 @@ public class InventoryController : Singleton<InventoryController>
     [SerializeField] public PurchasePanel purchasePanel;
     public bool purchasePanelBool = false;
 
-    List<ItemIcon> inventoryList;
+    List<ItemIcon> inventoryList = new List<ItemIcon>();
     public List<DropItem> dropItemList;
     [SerializeField] List<ItemData> itemDataList;
 
@@ -283,7 +283,7 @@ public class InventoryController : Singleton<InventoryController>
             }
             else
             {
-                dropItemGo = PhotonNetwork.InstantiateRoomObject($"Prefabs/Objects/DropItem/{itemIcon.item.itemData.name}_DropItem", playerTest.dropItemPosition.position, Quaternion.identity);
+                dropItemGo = PhotonNetwork.InstantiateRoomObject($"Prefabs/Objects/DropItem/DropItem_M", player.dropItemPosition.position, Quaternion.identity);
             }
             dropItemGo.name = $"{itemIcon.item.itemData.name}_DropItem";
             itemIcon.dropItem = dropItemGo;
@@ -602,11 +602,30 @@ public class InventoryController : Singleton<InventoryController>
 
     public void AllClearInventory()
     {
-        weaponPanel.TakeOutItem(dropItemPanel, weaponPanel.GetWeaponItemIcon());
-        useItemPanel.TakeOutItem(dropItemPanel, useItemPanel.GetItemIcon());
-        foreach(ItemIcon itemIcon in inventoryList)
+        if (weaponPanel.GetWeaponItemIcon()) dropItemPanel.InsertItem(weaponPanel.GetWeaponItemIcon());
+        if (useItemPanel.GetItemIcon()) useItemPanel.TakeOutItem(dropItemPanel, useItemPanel.GetItemIcon());
+
+        /*foreach(Item item in inventory)
         {
-            inventoryPanel.TakeOutItem(dropItemPanel, itemIcon);
+            inventoryPanel.TakeOutItem(dropItemPanel, item.itemIcon);
+        }*/
+        Debug.Log($"test");
+        for(int i = inventory.Count - 1; i >= 0; i--)
+        {
+            Debug.Log($"Dead clear inventory {inventory[i]}");
+            dropItemPanel.InsertItem(inventory[i].itemIcon);
+            //inventoryPanel.TakeOutItem(dropItemPanel, inventory[i].itemIcon);
+        }
+    }
+
+    public void AllClearDropItem()
+    {
+        if (weaponPanel.GetWeaponItemIcon()) { weaponPanel.GetWeaponItemIcon().dropItem = null; }
+        if (useItemPanel.GetItemIcon()) { useItemPanel.GetItemIcon().dropItem = null; }
+
+        foreach(Item item in inventory)
+        {
+            item.itemIcon.GetComponent<ItemIcon>().dropItem = null; 
         }
     }
 

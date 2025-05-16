@@ -22,7 +22,7 @@ public class ItemIcon : MonoBehaviour
     //Color orangeColor = 
     //Color redColor = ;
     
-
+    
     public void SetItem(Item item)
     {
         this.item = item;

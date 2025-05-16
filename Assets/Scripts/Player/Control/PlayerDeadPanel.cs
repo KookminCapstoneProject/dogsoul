@@ -10,7 +10,7 @@ public class PlayerDeadPanel : MonoBehaviour
 
     [SerializeField] private float readyTime = 3.0f;
     [SerializeField] private float fadeSpeed = 1f;
-    [SerializeField] private Image fadeOutPanel;
+    [SerializeField] public Image fadeOutPanel;
     [SerializeField] private TextMeshProUGUI text;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class PlayerDeadPanel : MonoBehaviour
 
     public void SetDeath()
     {
-        ReadyDeadPanel(readyTime);
+        StartCoroutine(ReadyDeadPanel(readyTime));
     }
 
     private IEnumerator ReadyDeadPanel(float time)
@@ -42,6 +42,7 @@ public class PlayerDeadPanel : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SceneController.Instance.LoadScene("Village");
         PlayerState.Instance.ChageStateHard(PlayerState.State.Idle);
+        
     }
 
     public void SetPanelClean()
