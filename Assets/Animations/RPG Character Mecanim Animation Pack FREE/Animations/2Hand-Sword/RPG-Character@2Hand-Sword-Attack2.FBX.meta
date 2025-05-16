@@ -782,10 +782,18 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6448276
-        functionName: CloseRightDamageCollider
+      - time: 0.37110394
+        functionName: PlayAttackClip
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: ef1a0b314d40e5b44908162dbe2e77b7,
+        objectReferenceParameter: {fileID: 11500000, guid: aa700b7345cdd9d4c9cde8efc17b3f93,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6448276
+        functionName: PlayAttckClip
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: aa700b7345cdd9d4c9cde8efc17b3f93,
           type: 3}
         floatParameter: 0
         intParameter: 0

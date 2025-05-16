@@ -483,6 +483,7 @@ namespace PlayerControl
                 print("weapon is null!");
                 return;
             }
+            print(weapon.weaponType);
             switch (weapon.weaponType)
             {
                 case "OneHand":

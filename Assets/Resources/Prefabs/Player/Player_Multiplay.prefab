@@ -1214,7 +1214,7 @@ MonoBehaviour:
   GreatswordLastClip: {fileID: 8300000, guid: 3987606e6964c614a9561d4eb317e9a9, type: 3}
   CrossbowClip: {fileID: 0}
   FootstepAudioVolume: 0.5
-  AttackAudioVolume: 0.701
+  AttackAudioVolume: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.5

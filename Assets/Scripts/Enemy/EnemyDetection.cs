@@ -36,5 +36,11 @@ public class EnemyDetection : MonoBehaviour
 
         return closestTarget;
     }
-    
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
 }

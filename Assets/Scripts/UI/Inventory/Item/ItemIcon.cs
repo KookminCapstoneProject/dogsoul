@@ -140,11 +140,12 @@ public class Item
     {
         if (this.itemData.itemType == ItemData.ItemType.Potion)
         {
-            foreach(ItemEffect effect in this.itemData.effectList)
+            Debug.Log("DWDWFEWDSFEWGEASFFDESFEAEWAFEACEWAFEWA");
+            AudioSource.PlayClipAtPoint(itemData.useItemSound, InventoryController.Instance.player.transform.position, itemData.useItemVolume);
+            foreach (ItemEffect effect in this.itemData.effectList)
             {
                 if (!effect.Effect()) { quantity += 1; break; }
             }
-            AudioSource.PlayClipAtPoint(itemData.useItemSound, InventoryController.Instance.player.transform.position, itemData.useItemVolume);
             quantity -= 1;
             UpdateInfo();
         }

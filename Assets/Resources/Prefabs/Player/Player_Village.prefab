@@ -911,11 +911,12 @@ MonoBehaviour:
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips: []
-  SwordClip: {fileID: 8300000, guid: 76dc4a8ac2a7b8945a207474908c401f, type: 3}
+  SwordClip: {fileID: 8300000, guid: c1c26e2324d8bc44eb6469e2cb08bd8d, type: 3}
   GreatswordClip: {fileID: 8300000, guid: 76dc4a8ac2a7b8945a207474908c401f, type: 3}
-  CrossbowClip: {fileID: 8300000, guid: 76dc4a8ac2a7b8945a207474908c401f, type: 3}
+  GreatswordLastClip: {fileID: 8300000, guid: 3987606e6964c614a9561d4eb317e9a9, type: 3}
+  CrossbowClip: {fileID: 0}
   FootstepAudioVolume: 0.5
-  AttackAudioVolume: 0.5
+  AttackAudioVolume: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.5
