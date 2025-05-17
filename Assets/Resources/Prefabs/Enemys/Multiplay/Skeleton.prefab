@@ -278,6 +278,8 @@ GameObject:
   - component: {fileID: 131999109444864166}
   - component: {fileID: 5539459050260072708}
   - component: {fileID: -7280446434706313261}
+  - component: {fileID: 5988968333219886580}
+  - component: {fileID: 5413213837165036556}
   m_Layer: 11
   m_Name: Skeleton
   m_TagString: Enemy
@@ -394,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed75e02b84de441a257ddf5f541d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 7088157759346372762}
   state: 0
 --- !u!114 &4334278678782575056
 MonoBehaviour:
@@ -426,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1a0b314d40e5b44908162dbe2e77b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightHandSlot: {fileID: 0}
 --- !u!114 &4433254973299494373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +461,8 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 3757691379188827894}
+  enemyExp: 0
+  removeTime: 5
 --- !u!114 &131999109444864166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47de4578939e0834da2d75b87b68c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 15
 --- !u!114 &5539459050260072708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +496,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -7280446434706313261}
+  - {fileID: 5988968333219886580}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -508,6 +516,58 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &5988968333219886580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501358193076484567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: Hit
+  - Type: 4
+    SynchronizeType: 0
+    Name: Stop
+  - Type: 4
+    SynchronizeType: 0
+    Name: Following
+  - Type: 9
+    SynchronizeType: 0
+    Name: JumpAttack
+  - Type: 9
+    SynchronizeType: 0
+    Name: AttackDownward
+  - Type: 9
+    SynchronizeType: 0
+    Name: ComboAttack1
+  - Type: 9
+    SynchronizeType: 0
+    Name: Death
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &5413213837165036556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501358193076484567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d4e9e47f74b1c43a3328d834615b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockOnTarget: {fileID: 0}
 --- !u!1 &3229745055530367725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3d2e06f564dd648a84ccc40e4e8210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationHandler: {fileID: 0}
   parentOverride: {fileID: 3668549492902363521}
   isLeftHandSlot: 0
   isRightHandSlot: 1

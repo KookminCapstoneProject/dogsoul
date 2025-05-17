@@ -107,6 +107,23 @@ public class LockOn : MonoBehaviour
     {
         Collider[] findTargets = Physics.OverlapSphere(transform.position, lockOnRadius, targetLayer);
         Debug.Log($"lock on name {findTargets}");
+        Debug.Log($"targetLayer {targetLayer.value}");
+
+
+
+        /*Collider[] allTargets = Physics.OverlapSphere(transform.position, lockOnRadius);
+        Debug.Log($"allTargets len = {allTargets.Length}");
+        foreach (var c in allTargets)
+        {
+            Debug.Log($"  ▶ {c.gameObject.name} (layer {c.gameObject.layer}:{LayerMask.LayerToName(c.gameObject.layer)})");
+            if(c.gameObject.layer == targetLayer)
+            {
+                Debug.Log($"asdfasdf");
+            }
+        }*/
+            
+        //Debug.DrawRay(transform.position, Vector3.up * 0.1f, Color.green, 5f);
+        //Debug.DrawSphere(transform.position, lockOnRadius, Color.red, 1f);
         if (findTargets.Length <= 0)
         {
             return;
@@ -115,32 +132,41 @@ public class LockOn : MonoBehaviour
         foreach (Collider findTarget in findTargets)
         {
             //print("Now locked on: " + findTarget.name);
-            Debug.Log($"lock on name {findTarget.gameObject.name}");
+            Debug.Log($"lock on name {findTarget.gameObject.name} asdf {findTargets.Length}" );
+            
+            
             LockOnTarget target = findTarget.GetComponent<LockOnTarget>();
+
+            if(target == null) { continue; }
             print("find: " + target.name);
 
+            Debug.Log("1");
             if(target != null)
             {
+                Debug.Log("2");
                 Vector3 targetDirection = target.transform.position - transform.position;
 
                 float viewAngle = Vector3.Angle(targetDirection, mainCamera.transform.forward);
 
                 if (viewAngle > minViewAngle && viewAngle < maxViewAngle)
                 {
+                    Debug.Log("3");
                     RaycastHit hit;
 
                     if(Physics.Linecast(transform.position, target.lockOnTarget.transform.position, out hit, targetLayer))
                     {
+                        Debug.Log("4");
                         targetEnemies.Add(target);
                     }
                 }
                 else
                 {
+                    Debug.Log("5");
                     ResetTarget();
                 }
             }            
         }
-
+        Debug.Log("6");
         LockOnTarget();
     }
 

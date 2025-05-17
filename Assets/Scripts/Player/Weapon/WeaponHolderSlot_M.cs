@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponHolderSlot_M : WeaponHolderSlot
 {
     PhotonView photonView;
+    public ProjectileShooter shooter;
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -60,6 +61,7 @@ public class WeaponHolderSlot_M : WeaponHolderSlot
         if (weaponStats == null)
         {
             UnloadWeapon();
+            animationHandler.UpdateOverride("base");
             return;
         }
         GameObject weapon = null;
@@ -126,6 +128,7 @@ public class WeaponHolderSlot_M : WeaponHolderSlot
         if (weaponStats == null)
         {
             UnloadWeapon();
+            animationHandler.UpdateOverride("base");
             return;
         }
 
@@ -153,8 +156,14 @@ public class WeaponHolderSlot_M : WeaponHolderSlot
         {
             
         }
+        Debug.Log("animation test1");
         if (animationHandler != null)
+        {
+            Debug.Log("animation test2");
+            Debug.Log($"weaponStats {weaponStats.weaponType}");
             animationHandler.UpdateOverride(weaponStats.weaponType);
+        }
+            
 
     }
 
@@ -268,6 +277,12 @@ public class WeaponHolderSlot_M : WeaponHolderSlot
 
         // 6) ???? ???? ????
         currentWeaponModel = weapon;
+    }
+
+    [PunRPC]
+    private void ShootDirection(Vector3 direction)
+    {
+        shooter.Shoot_(direction);
     }
 
 

@@ -81,7 +81,11 @@ public class PlayerController_M : PlayerControl.PlayerController
             {
                 if (!weapon.isRanged) animationHandler.SetTrigger(AnimationHandler.AnimParam.Attack);
                 else animationHandler.SetTrigger(AnimationHandler.AnimParam.RangedAttack);
-                photonView.RPC(nameof(RpcAnimator), RpcTarget.OthersBuffered);
+                if (photonView.IsMine)
+                {
+                    photonView.RPC(nameof(RpcAnimator), RpcTarget.OthersBuffered);
+                }
+                
 
                 animationHandler.RootMotion(true);
                 animationHandler.SetBool(AnimationHandler.AnimParam.Interacting, true);
@@ -103,7 +107,16 @@ public class PlayerController_M : PlayerControl.PlayerController
     [PunRPC]
     private void RpcAnimator()
     {
-        if (!weaponStats.isRanged) animationHandler.SetTrigger(AnimationHandler.AnimParam.Attack);
-        else animationHandler.SetTrigger(AnimationHandler.AnimParam.RangedAttack);
+        Debug.Log($"weaponStats {weaponStats}");
+        Debug.Log($"animationHandler {animationHandler}");
+        /*if (!weaponStats.isRanged) animationHandler.SetTrigger(AnimationHandler.AnimParam.Attack);
+        else animationHandler.SetTrigger(AnimationHandler.AnimParam.RangedAttack);*/
+
+
+
+        animationHandler.RootMotion(true);
+        animationHandler.SetBool(AnimationHandler.AnimParam.Interacting, true);
+        animationHandler.SetBool(AnimationHandler.AnimParam.Blocking, true);
+        animationHandler.SetBool(AnimationHandler.AnimParam.Attacking, true);
     }
 }

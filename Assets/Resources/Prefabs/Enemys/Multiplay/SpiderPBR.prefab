@@ -1017,7 +1017,11 @@ GameObject:
   - component: {fileID: 2332897922250927318}
   - component: {fileID: 8241364369126999406}
   - component: {fileID: -4970652162814888536}
-  m_Layer: 13
+  - component: {fileID: 5600026577223322240}
+  - component: {fileID: -8332996387381041484}
+  - component: {fileID: -8761724951974833883}
+  - component: {fileID: 1514210450522980656}
+  m_Layer: 11
   m_Name: SpiderPBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,6 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed75e02b84de441a257ddf5f541d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 2332897922250927318}
   state: 0
 --- !u!114 &2332897922250927318
 MonoBehaviour:
@@ -1128,6 +1133,7 @@ MonoBehaviour:
   currentHealth: 0
   hpBar: {fileID: 2277242128205979212}
   enemyExp: 0
+  removeTime: 5
 --- !u!114 &8241364369126999406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47de4578939e0834da2d75b87b68c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 15
 --- !u!114 &-4970652162814888536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1169,105 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackCollider: {fileID: 0}
+--- !u!114 &5600026577223322240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168773417854910463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 1
+    Name: Hit
+  - Type: 9
+    SynchronizeType: 1
+    Name: Die
+  - Type: 9
+    SynchronizeType: 1
+    Name: Attack
+  - Type: 9
+    SynchronizeType: 1
+    Name: ExitBattleIdle
+  - Type: 4
+    SynchronizeType: 1
+    Name: Stop
+  - Type: 4
+    SynchronizeType: 1
+    Name: Following
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsInteracting
+  - Type: 3
+    SynchronizeType: 2
+    Name: AttackPatternNo
+  - Type: 4
+    SynchronizeType: 1
+    Name: Attacking
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &-8332996387381041484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168773417854910463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &-8761724951974833883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168773417854910463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5600026577223322240}
+  - {fileID: -8332996387381041484}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1514210450522980656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168773417854910463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d4e9e47f74b1c43a3328d834615b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockOnTarget: {fileID: 0}
 --- !u!1 &4174019097813843447
 GameObject:
   m_ObjectHideFlags: 0

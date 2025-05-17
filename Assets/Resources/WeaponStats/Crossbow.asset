@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ce311449d483c42aec1cbe7e5df267, type: 3}
   m_Name: Crossbow
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4383720774924438624, guid: 1d4f68a3ed1df5d47961cfa786d8b7e0,
+  weaponPrefab: {fileID: 4383720774924438624, guid: b95ca9cf2ca1dd24fa39935b14f496b4,
     type: 3}
-  weaponOverride: {fileID: 22100000, guid: 1b4e919ad35e77543b2b74df184ef5a8, type: 2}
+  weaponType: 
   damage: 0
   isRanged: 1
   projectile: {fileID: 0}

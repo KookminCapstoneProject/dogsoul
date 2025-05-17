@@ -2085,7 +2085,11 @@ GameObject:
   - component: {fileID: 3740075473947565949}
   - component: {fileID: 5756240713361955}
   - component: {fileID: -2875936195428430329}
-  m_Layer: 13
+  - component: {fileID: 7108325178308011229}
+  - component: {fileID: 4635560448111612461}
+  - component: {fileID: -8436817871508682442}
+  - component: {fileID: 6127292523305512813}
+  m_Layer: 11
   m_Name: MonsterPlantPBR
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2178,6 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed75e02b84de441a257ddf5f541d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 3740075473947565949}
   state: 0
 --- !u!114 &3740075473947565949
 MonoBehaviour:
@@ -2196,6 +2201,7 @@ MonoBehaviour:
   currentHealth: 0
   hpBar: {fileID: 1756051108572152219}
   enemyExp: 0
+  removeTime: 5
 --- !u!114 &5756240713361955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2208,6 +2214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47de4578939e0834da2d75b87b68c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 15
 --- !u!114 &-2875936195428430329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2230,6 +2237,105 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackCollider: {fileID: 0}
+--- !u!114 &7108325178308011229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359509438485730392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Stop
+  - Type: 4
+    SynchronizeType: 1
+    Name: Following
+  - Type: 4
+    SynchronizeType: 1
+    Name: Attacking
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsInteracting
+  - Type: 9
+    SynchronizeType: 1
+    Name: Hit
+  - Type: 9
+    SynchronizeType: 1
+    Name: Die
+  - Type: 9
+    SynchronizeType: 1
+    Name: Attack
+  - Type: 3
+    SynchronizeType: 2
+    Name: AttackPatternNo
+  - Type: 9
+    SynchronizeType: 1
+    Name: ExitBattleIdle
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &4635560448111612461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359509438485730392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7108325178308011229}
+  - {fileID: -8436817871508682442}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &-8436817871508682442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359509438485730392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &6127292523305512813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359509438485730392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d4e9e47f74b1c43a3328d834615b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockOnTarget: {fileID: 0}
 --- !u!1 &8986994079157205149
 GameObject:
   m_ObjectHideFlags: 0

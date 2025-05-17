@@ -79,6 +79,8 @@ public class AnimationHandler : MonoBehaviour
             print("crossbow updated");
             animator.runtimeAnimatorController = crossbowOverride;
             break;
+            default:
+                break;
         }
     }
 

@@ -64,7 +64,7 @@ public class EnemyHealth : Health
             }
         }
         #endregion
-
+        photonView.RPC(nameof(TakeDamageRpc), RpcTarget.OthersBuffered, damage);
         // die
         if (currentHealth <= 0)
         {
@@ -110,4 +110,11 @@ public class EnemyHealth : Health
         enemyState.ChangeState(EnemyState.State.Die);
     }
 
+
+    [PunRPC]
+    private void TakeDamageRpc(float damage)
+    {
+        currentHealth -= damage;
+        UpdateHpBar();
+    }
 }

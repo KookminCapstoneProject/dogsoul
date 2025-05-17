@@ -62,7 +62,7 @@ public class DropItem_M : DropItem
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            DebugText.Instance.Debug($"itemData requestUpdateItemPhoton {itemData}");
+            //DebugText.Instance.Debug($"itemData requestUpdateItemPhoton {itemData}");
             //string itemData = ChangeData(item); // 데이터를 문자열로 변환
             photonView.RPC("UpdateItemPhoton", RpcTarget.AllBuffered, itemData);
         }
@@ -76,7 +76,7 @@ public class DropItem_M : DropItem
         this.itemData = ItemDatabase.Instance.GetItemDataByName(data[0]);
         quantity = int.Parse(data[1]);
         durability = float.Parse(data[2]);
-        DebugText.Instance.Debug($"qunantity {quantity} durability {durability}");
+        //DebugText.Instance.Debug($"qunantity {quantity} durability {durability}");
         Debug.Log($"UpdateItemPhoton {quantity} {durability}");
     }
 
@@ -86,7 +86,7 @@ public class DropItem_M : DropItem
         PhotonView targetView = PhotonView.Find(viewID);
         if (targetView != null)
         {
-            DebugText.Instance.Debug("DeactivateDropItem");
+            //DebugText.Instance.Debug("DeactivateDropItem");
             InventoryController.Instance.dropItemList.Remove(targetView.GetComponent<DropItem>());
             if (targetView.GetComponent<DropItem>().itemIcon != null)
             {
