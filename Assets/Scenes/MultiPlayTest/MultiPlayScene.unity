@@ -550,7 +550,7 @@ MonoBehaviour:
   dontSelectedEntryGO: {fileID: 0}
   surface: {fileID: 0}
   mainCmera: {fileID: 0}
-  entranceRoomName: Room_Military_M
+  entranceRoomName: TestRoom
 --- !u!114 &633129431
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class LockOn : MonoBehaviour
     [Header("Init")]
     private GameObject mainCamera;
     public LayerMask targetLayer;
+    [SerializeField] private LayerMask groundLayer;
     private Transform lockOnImage;
 
     [Header("Setting")]
@@ -131,6 +132,8 @@ public class LockOn : MonoBehaviour
 
         foreach (Collider findTarget in findTargets)
         {
+
+
             //print("Now locked on: " + findTarget.name);
             Debug.Log($"lock on name {findTarget.gameObject.name} asdf {findTargets.Length}" );
             
@@ -139,6 +142,18 @@ public class LockOn : MonoBehaviour
 
             if(target == null) { continue; }
             print("find: " + target.name);
+
+            Vector3 rayOrigin = mainCamera.transform.position;
+            Vector3 rayEnd = target.lockOnTarget.transform.position;
+
+            RaycastHit hit;
+            bool hitGround = Physics.Linecast(
+                rayOrigin,
+                rayEnd,
+                out hit,
+                groundLayerMask,                   // Ground 전용 LayerMask
+                QueryTriggerInteraction.Ignore
+            );
 
             Debug.Log("1");
             if(target != null)
@@ -151,9 +166,39 @@ public class LockOn : MonoBehaviour
                 if (viewAngle > minViewAngle && viewAngle < maxViewAngle)
                 {
                     Debug.Log("3");
-                    RaycastHit hit;
+                    //RaycastHit hit;
 
-                    if(Physics.Linecast(transform.position, target.lockOnTarget.transform.position, out hit, targetLayer))
+                    
+
+                    Debug.DrawLine(
+                    transform.position,
+                    target.lockOnTarget.transform.position,
+                        Color.red,
+                        1.0f  // 1초 동안 보이게
+                    );
+
+
+                    Debug.Log($"layer mask {targetLayer.value}");
+                    // 2) 실제로 Linecast가 충돌을 감지했는지 로그로 출력
+                    RaycastHit hit;
+                    bool blocked = Physics.Linecast(
+                        transform.position,
+                        target.lockOnTarget.transform.position,
+                        out hit,
+                        targetLayer.value
+                    );
+
+                    Debug.Log(
+                        $"Linecast from {transform.position} to {target.lockOnTarget.transform.position} " +
+                        $"- blocked: {blocked}" +
+                        (blocked ? $", hit collider: {hit.collider.name} at {hit.point}" : "")
+                    );
+
+
+
+
+
+                    if (Physics.Linecast(transform.position, target.lockOnTarget.transform.position, out hit, targetLayer))
                     {
                         Debug.Log("4");
                         targetEnemies.Add(target);
