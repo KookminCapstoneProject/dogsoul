@@ -8,9 +8,6 @@ public class BrokenEffect_M : BrokenEffect
     [SerializeField] InteractGo interactGo;
     PhotonView photonView;
 
-    
-
-
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
@@ -26,6 +23,7 @@ public class BrokenEffect_M : BrokenEffect
 
     protected override IEnumerator removeTimer()
     {
+        AudioSource.PlayClipAtPoint(breakSound, transform.position, breakVolume);
         yield return new WaitForSeconds(removeTime);
         Debug.Log($"Destory {gameObject.name}");
         Destroy(gameObject);

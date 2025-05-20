@@ -461,8 +461,9 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 3757691379188827894}
+  hitClip: {fileID: 8300000, guid: ac32760abfaf9da418881fa0cd6c1539, type: 3}
+  hitVolume: 0.5
   enemyExp: 0
-  removeTime: 5
 --- !u!114 &131999109444864166
 MonoBehaviour:
   m_ObjectHideFlags: 0

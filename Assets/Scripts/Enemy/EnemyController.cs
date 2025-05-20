@@ -27,6 +27,9 @@ public class EnemyController : MonoBehaviour
     [Header("Die Effect")]
     [SerializeField] float fadeTime = 3f;
 
+    public AudioClip attackClip;
+    [Range(0, 1)] public float volume = 0.5f;
+
 
     [SerializeField] Collider attackCollider;
     EnemyState enemyState;
@@ -211,6 +214,11 @@ public class EnemyController : MonoBehaviour
         animator.SetBool("Following", true);
 
         agent.SetDestination(destination);
+    }
+
+    public void PlayAttackSound()
+    {
+        AudioSource.PlayClipAtPoint(attackClip, transform.position, volume);
     }
 
     #region PatrolUtils

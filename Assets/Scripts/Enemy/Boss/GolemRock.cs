@@ -6,6 +6,9 @@ public class GolemRock : MonoBehaviour
 {
     Transform target;
     public float damage = 30f;
+    public AudioClip swoosh;
+    public AudioClip impact;
+    [Range(0, 1)] public float volume;
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -25,7 +28,7 @@ public class GolemRock : MonoBehaviour
         float duration = distance / speed; 
         float time = 0f;
 
-
+        AudioSource.PlayClipAtPoint(swoosh, transform.position, volume);
         while (time < duration)
         {
             float t = time / duration;
@@ -45,6 +48,7 @@ public class GolemRock : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(impact, transform.position, volume);
             other.GetComponent<PlayerHealth>().TakeDamage(damage, null, Vector3.zero, null, true);
             Destroy(gameObject);
         }

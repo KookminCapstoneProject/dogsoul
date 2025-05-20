@@ -1091,13 +1091,16 @@ MonoBehaviour:
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  LandingAudioClip: {fileID: 0}
+  LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips: []
-  SwordClip: {fileID: 0}
-  GreatswordClip: {fileID: 0}
-  CrossbowClip: {fileID: 0}
+  SwordClip: {fileID: 8300000, guid: c1c26e2324d8bc44eb6469e2cb08bd8d, type: 3}
+  GreatswordClip: {fileID: 8300000, guid: 76dc4a8ac2a7b8945a207474908c401f, type: 3}
+  GreatswordLastClip: {fileID: 8300000, guid: 3987606e6964c614a9561d4eb317e9a9, type: 3}
+  CrossbowClip: {fileID: 8300000, guid: 3b1a92218865a2d40b809a9524255cfc, type: 3}
+  HitClip: {fileID: 8300000, guid: 307f2c41204cbbf4d84d4b97e023e1b3, type: 3}
+  RollClip: {fileID: 8300000, guid: 5afaa2ffe0a978e4a9dac864d4134a59, type: 3}
   FootstepAudioVolume: 0.5
-  AttackAudioVolume: 0.5
+  AttackAudioVolume: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.5

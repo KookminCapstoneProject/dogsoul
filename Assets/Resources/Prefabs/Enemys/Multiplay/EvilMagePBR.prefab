@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47de4578939e0834da2d75b87b68c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 15
+
 --- !u!114 &1959335702937698434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1385,8 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackClip: {fileID: 8300000, guid: a87047dd14b19d04c966a275e1ac3d51, type: 3}
+  volume: 0.5
   attackCollider: {fileID: 2246013589010644516}
 --- !u!114 &7605884369623718899
 MonoBehaviour:
@@ -1402,6 +1404,8 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 2066254504456063174}
+  hitClip: {fileID: 8300000, guid: ac32760abfaf9da418881fa0cd6c1539, type: 3}
+  hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
 --- !u!136 &3070134187806431716

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 4383720774924438624, guid: b95ca9cf2ca1dd24fa39935b14f496b4,
     type: 3}
-  weaponType: 
+  weaponType: Crossbow
   damage: 0
   isRanged: 1
   projectile: {fileID: 0}

@@ -35,7 +35,10 @@ namespace PlayerControl
         public AudioClip[] FootstepAudioClips;
         public AudioClip SwordClip;
         public AudioClip GreatswordClip;
+        public AudioClip GreatswordLastClip;
         public AudioClip CrossbowClip;
+        public AudioClip HitClip;
+        public AudioClip RollClip;
 
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
         [Range(0, 1)] public float AttackAudioVolume = 0.5f;
@@ -430,6 +433,7 @@ namespace PlayerControl
                 _dashDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
                 animationHandler.SetTrigger(AnimationHandler.AnimParam.Rolling);
                 PlayerStatusController.Instance.UseStamina(_dodgeStaminaUsage);
+                AudioSource.PlayClipAtPoint(RollClip, transform.TransformPoint(_controller.center), AttackAudioVolume);
                 StartCoroutine(SmallDash());
                 /*
                 animationHandler.RootMotion(true);
@@ -468,7 +472,12 @@ namespace PlayerControl
         public void PlayAttackClip()
         {
             WeaponStats weapon = InventoryController.Instance.weaponPanel.GetWeapon();
-            if (weapon == null) return;
+            if (weapon == null)
+            {
+                print("weapon is null!");
+                return;
+            }
+            print(weapon.weaponType);
             switch (weapon.weaponType)
             {
                 case "OneHand":
@@ -484,6 +493,10 @@ namespace PlayerControl
                     break;
             }
         }
+        public void PlayGreatSwordLast()
+        {
+            AudioSource.PlayClipAtPoint(GreatswordLastClip, transform.TransformPoint(_controller.center), AttackAudioVolume);
+        }
 
         protected void UseItem()
         {
@@ -498,6 +511,11 @@ namespace PlayerControl
                 animationHandler.SetBool(AnimationHandler.AnimParam.Blocking, true);
                 test_useItem = true;
             }
+        }
+
+        public void PlayHitClip()
+        {
+            AudioSource.PlayClipAtPoint(HitClip, transform.TransformPoint(_controller.center), AttackAudioVolume);
         }
 
         protected void PickUp()

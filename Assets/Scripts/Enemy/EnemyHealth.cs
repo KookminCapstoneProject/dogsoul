@@ -10,6 +10,8 @@ public class EnemyHealth : Health
     protected Animator animator;
     protected EnemyState enemyState;
     public Slider hpBar;
+    public AudioClip hitClip;
+    [Range(0, 1)]public float hitVolume = 0.5f;
     public int enemyExp;
     protected PhotonView photonView;
     [SerializeField] protected float removeTime = 5.0f;
@@ -63,6 +65,7 @@ public class EnemyHealth : Health
                 break;
             }
         }
+        AudioSource.PlayClipAtPoint(hitClip, transform.position, hitVolume);
         #endregion
         photonView.RPC(nameof(TakeDamageRpc), RpcTarget.OthersBuffered, damage);
         // die
