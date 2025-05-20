@@ -1028,6 +1028,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 2048
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1088
   lockOnRadius: 20
   minViewAngle: -70
   maxViewAngle: 70

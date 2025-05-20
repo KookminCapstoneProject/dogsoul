@@ -151,7 +151,7 @@ public class LockOn : MonoBehaviour
                 rayOrigin,
                 rayEnd,
                 out hit,
-                groundLayerMask,                   // Ground 전용 LayerMask
+                groundLayer,                   // Ground 전용 LayerMask
                 QueryTriggerInteraction.Ignore
             );
 
@@ -180,15 +180,20 @@ public class LockOn : MonoBehaviour
 
                     Debug.Log($"layer mask {targetLayer.value}");
                     // 2) 실제로 Linecast가 충돌을 감지했는지 로그로 출력
-                    RaycastHit hit;
+                    //RaycastHit hit;
                     bool blocked = Physics.Linecast(
                         transform.position,
                         target.lockOnTarget.transform.position,
                         out hit,
-                        targetLayer.value
+                        groundLayer
                     );
 
-                    Debug.Log(
+                    if (!blocked)
+                    {
+                        targetEnemies.Add(target);
+                    }
+
+                    /*Debug.Log(
                         $"Linecast from {transform.position} to {target.lockOnTarget.transform.position} " +
                         $"- blocked: {blocked}" +
                         (blocked ? $", hit collider: {hit.collider.name} at {hit.point}" : "")
@@ -202,7 +207,7 @@ public class LockOn : MonoBehaviour
                     {
                         Debug.Log("4");
                         targetEnemies.Add(target);
-                    }
+                    }*/
                 }
                 else
                 {
