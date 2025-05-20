@@ -877,8 +877,6 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
-  attackClip: {fileID: 8300000, guid: f84cb1995efc2af46bb32adcc7b19452, type: 3}
-  volume: 0.5
   attackCollider: {fileID: 201502293968113429}
 --- !u!114 &1638441715003452350
 MonoBehaviour:
@@ -905,7 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed75e02b84de441a257ddf5f541d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 5827531663527092147}
+  enemyHealth: {fileID: 0}
   state: 0
 --- !u!114 &5827531663527092147
 MonoBehaviour:
@@ -923,8 +921,6 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 3550092556528338670}
-  hitClip: {fileID: 8300000, guid: ac32760abfaf9da418881fa0cd6c1539, type: 3}
-  hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
 --- !u!114 &5381121236124047874
@@ -939,7 +935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47de4578939e0834da2d75b87b68c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 15
 --- !u!114 &2882919858402573940
 MonoBehaviour:
   m_ObjectHideFlags: 0
