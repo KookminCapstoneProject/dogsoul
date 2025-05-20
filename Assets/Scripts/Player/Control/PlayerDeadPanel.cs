@@ -40,6 +40,7 @@ public class PlayerDeadPanel : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3f);
+        SetPanelClean();
         SceneController.Instance.LoadScene("Village");
         PlayerState.Instance.ChageStateHard(PlayerState.State.Idle);
         

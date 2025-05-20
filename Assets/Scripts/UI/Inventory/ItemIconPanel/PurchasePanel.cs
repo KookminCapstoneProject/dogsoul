@@ -89,7 +89,7 @@ public class PurchasePanel : MonoBehaviour
 
     }
 
-    private void ClearPurchasePanel()
+    public void ClearPurchasePanel()
     {
         foreach (Transform child in scrollRect.content)
         {

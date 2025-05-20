@@ -139,7 +139,7 @@ namespace PlayerControl
 
 
         
-        private bool photonIsMine = true;
+        //private bool photonIsMine = true;
 
         [SerializeField] PlayerGhostEffect playerGhostEffect;
 

@@ -517,6 +517,8 @@ public class InventoryController : Singleton<InventoryController>
             canvasGroup.alpha = 0;
             //warehouseCanvasGroup.gameObject.SetActive(false);
             storeCanvas.gameObject.SetActive(false);
+            storeItemPanel.ClearItemIcon();
+            purchasePanel.ClearPurchasePanel();
             chestItemPanel.gameObject.SetActive(false);
         }
 
@@ -569,10 +571,11 @@ public class InventoryController : Singleton<InventoryController>
         return totalCount;
     }
 
-    public void SetChestItemPanel(ref List<Item> itemList, WarehouseInteract warehouse)
+    public void SetChestItemPanel( WarehouseInteract warehouse)
     {
         //TODO player의 상태 Inventory_Chest로 변경
         PlayerState.Instance.ChangeState(PlayerState.State.Inventory);
+        storeItemPanel.gameObject.SetActive(false);
         chestItemPanel.gameObject.SetActive(true);
         chestItemPanel.SetWarehouse(warehouse);
         //dropItemPanel.gameObject.SetActive(false);
@@ -587,6 +590,13 @@ public class InventoryController : Singleton<InventoryController>
     {
         //TODO player의 상태 Idle로 변경
 
+    }
+
+    public void SetStoreItemPanel()
+    {
+        PlayerState.Instance.ChangeState(PlayerState.State.Inventory);
+        chestItemPanel.gameObject.SetActive(false);
+        storeItemPanel.gameObject.SetActive(true);
     }
 
     public void SetPlayerInventory()
@@ -629,6 +639,16 @@ public class InventoryController : Singleton<InventoryController>
         foreach(Item item in inventory)
         {
             item.itemIcon.GetComponent<ItemIcon>().dropItem = null; 
+        }
+    }
+
+    public void AllClearDropItemPanel()
+    {
+        foreach(DropItem item in dropItemList)
+        {
+            RemoveItemIcon(item.itemIcon.GetComponent<ItemIcon>());
+            dropItemPanel.RemoveItem(item.itemIcon.GetComponent<ItemIcon>());
+            dropItemList.Remove(item);
         }
     }
 

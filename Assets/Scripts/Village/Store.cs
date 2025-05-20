@@ -20,7 +20,7 @@ public class Store : MonoBehaviour
     public void SetInventoryState(bool input)
     {
 
-        InventoryController.Instance.SetStoreInventory(input);
+        InventoryController.Instance.SetStoreItemPanel();
         if (input) { InventoryController.Instance.storeItemPanel.InsertItem(storeItemData); }
         
     }

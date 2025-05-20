@@ -17,4 +17,14 @@ public class StoreItemPanel : MonoBehaviour
             storeItemIcon.transform.SetParent(scrollRect.content);
         }
     }
+
+    public void ClearItemIcon()
+    {
+
+    }
+
+    public void ClearPurchaseItemIcon()
+    {
+
+    }
 }

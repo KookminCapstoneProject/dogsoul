@@ -16,7 +16,7 @@ public class WarehouseInteract : InteractGo
     {
         Debug.Log($"ware house test");
         active = true;
-        InventoryController.Instance.SetChestItemPanel(ref itemList, this);
+        InventoryController.Instance.SetChestItemPanel(this);
     }
     public override void CloseInteract()
     {

@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   lifeTime: 15
+  fireaball: {fileID: 8300000, guid: a87047dd14b19d04c966a275e1ac3d51, type: 3}
+  volume: 0.5
 --- !u!135 &7349652771846921335
 SphereCollider:
   m_ObjectHideFlags: 0
