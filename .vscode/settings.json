@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Cinematic.sln"
+    "dotnet.defaultSolution": "Demo5.sln"
 }

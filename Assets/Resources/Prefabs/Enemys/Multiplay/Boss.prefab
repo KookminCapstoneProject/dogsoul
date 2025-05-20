@@ -342,6 +342,10 @@ MonoBehaviour:
   rangedCool: 3
   attackCoolMin: 1
   attackCoolMax: 2
+  attackSound: {fileID: 8300000, guid: f84cb1995efc2af46bb32adcc7b19452, type: 3}
+  jumpSound: {fileID: 8300000, guid: 79be1dbf600a8d64892cd2d61233630b, type: 3}
+  stompSound: {fileID: 8300000, guid: 4a54c8272ddcc97498fe64e4fd05f70c, type: 3}
+  crashSound: {fileID: 8300000, guid: a80cd807195fabd488668f246d51eda7, type: 3}
 --- !u!114 &1757372257922341079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +362,8 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 6035317736489005967}
+  hitClip: {fileID: 0}
+  hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
   bossController: {fileID: 1070621968950360431}

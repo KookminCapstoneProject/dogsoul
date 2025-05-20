@@ -159,6 +159,16 @@ abstract public class BossController : MonoBehaviour
 
     }
 
+    public void PlayAttackSound()
+    {
+        AudioSource.PlayClipAtPoint(attackSound, transform.position, volume);
+    }
+
+    public void PlayStompSound()
+    {
+        AudioSource.PlayClipAtPoint(stompSound, transform.position, volume);
+    }
+
     #region Attack
     public void EnableAttack()
     {
