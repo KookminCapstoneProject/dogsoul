@@ -12,6 +12,7 @@ public class Fadeout : MonoBehaviour
 
     IEnumerator CoFadeOut()
     {
+        yield return new WaitForSeconds(0.5f); // 처음 딜레이
         float elapsedTime = 0f; 
         float fadedTime = 3f; 
 

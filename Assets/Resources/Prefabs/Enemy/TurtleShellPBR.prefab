@@ -1127,6 +1127,8 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 1906647491592996754}
+  hitClip: {fileID: 0}
+  hitVolume: 0.5
   enemyExp: 0
 --- !u!114 &4116241784791895425
 MonoBehaviour:
@@ -1150,6 +1152,7 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackCollider: {fileID: 0}
 --- !u!1 &4432314494358237992
 GameObject:
   m_ObjectHideFlags: 0

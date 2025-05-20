@@ -19,10 +19,16 @@ public class Opening : MonoBehaviour
     public Image splashImage;
     public TextMeshProUGUI[] texts;
     public SplashPage[] pages;
+    public AudioClip secondOpening;
+    private AudioSource audioSource;
+    private float aduioVolume = 0.5f;
 
     void Start()
     {
+        splashImage.sprite = pages[0].image;
+        foreach (TextMeshProUGUI t in texts) t.text = "";
         StartCoroutine(TypingText());
+        audioSource = GetComponent<AudioSource>();
     }
 
     void LoadNextScene()
@@ -32,10 +38,16 @@ public class Opening : MonoBehaviour
 
     public IEnumerator TypingText()
     {
+        yield return new WaitForSeconds(0.5f); // 처음 딜레이
         for (int index = 0; index < pages.Length; index++) // 페이지 불러오기
         {
             splashImage.sprite = pages[index].image; // 이미지 전환
             foreach (TextMeshProUGUI t in texts) t.text = "";
+
+            if (index == 3)
+            {
+                StartCoroutine(FadeOutAndChange(secondOpening));
+            }
 
             for (int t = 0; t < texts.Length && t < pages[index].scripts.Length; t++) // 문장 불러오기
             {
@@ -44,7 +56,7 @@ public class Opening : MonoBehaviour
                 for (int i = 0; i <= strTypingLength; i++) // 한국어 타이핑
                 {
                     texts[t].text = pages[index].scripts[t].Typing(i);
-                    yield return new WaitForSeconds(0.02f);
+                    yield return new WaitForSeconds(0.03f);
                 }
                 yield return new WaitForSeconds(0.5f);
             }
@@ -55,14 +67,17 @@ public class Opening : MonoBehaviour
 
     IEnumerator CoFadeOut()
     {
-        float elapsedTime = 0f; 
-        float fadedTime = 3f; 
+        float elapsedTime = 0f;
+        float fadedTime = 3f;
 
+        float volumeDelta = audioSource.volume / fadedTime;
         while (elapsedTime <= fadedTime)
         {
             backgorund.GetComponent<CanvasRenderer>().SetAlpha(Mathf.Lerp(1f, 0f, elapsedTime / fadedTime));
             splashImage.GetComponent<CanvasRenderer>().SetAlpha(Mathf.Lerp(1f, 0f, elapsedTime / fadedTime));
             foreach (TextMeshProUGUI t in texts) t.GetComponent<CanvasRenderer>().SetAlpha(Mathf.Lerp(1f, 0f, elapsedTime / fadedTime));
+
+            audioSource.volume -= volumeDelta * Time.deltaTime;
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -71,4 +86,28 @@ public class Opening : MonoBehaviour
         Destroy(gameObject);
         yield break;
     }
+
+    IEnumerator FadeOutAndChange(AudioClip newClip)
+{
+    // 페이드 아웃
+    while (audioSource.volume > 0.01f)
+    {
+        audioSource.volume -= Time.deltaTime;
+        yield return null;
+    }
+
+    audioSource.Stop();
+    audioSource.clip = newClip;
+    audioSource.Play();
+
+    // 페이드 인
+    while (audioSource.volume < aduioVolume)
+    {
+        audioSource.volume += Time.deltaTime;
+        yield return null;
+    }
 }
+
+}
+
+

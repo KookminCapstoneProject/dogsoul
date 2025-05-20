@@ -44,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(WaitForParticleEnd(hitEffect, contactPos));
         }
+
+        GetComponent<PlayerController>().PlayHitClip();
         
         if (!isStun) animationHandler.SetTrigger(AnimationHandler.AnimParam.Hit);
         else animationHandler.SetTrigger(AnimationHandler.AnimParam.Stun);

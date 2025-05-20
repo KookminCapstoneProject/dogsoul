@@ -8,6 +8,8 @@ public class EnemyHealth : Health
     private Animator animator;
     private EnemyState enemyState;
     public Slider hpBar;
+    public AudioClip hitClip;
+    [Range(0, 1)]public float hitVolume = 0.5f;
     public int enemyExp;
 
     void Awake()
@@ -58,6 +60,7 @@ public class EnemyHealth : Health
                 break;
             }
         }
+        AudioSource.PlayClipAtPoint(hitClip, transform.position, hitVolume);
         #endregion
 
         // die

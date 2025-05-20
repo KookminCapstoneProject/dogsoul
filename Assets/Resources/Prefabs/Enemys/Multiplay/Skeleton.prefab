@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1a0b314d40e5b44908162dbe2e77b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightHandSlot: {fileID: 0}
 --- !u!114 &4433254973299494373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +458,9 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   hpBar: {fileID: 3757691379188827894}
+  hitClip: {fileID: 8300000, guid: ac32760abfaf9da418881fa0cd6c1539, type: 3}
+  hitVolume: 0.5
+  enemyExp: 0
 --- !u!114 &131999109444864166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3d2e06f564dd648a84ccc40e4e8210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationHandler: {fileID: 0}
   parentOverride: {fileID: 3668549492902363521}
   isLeftHandSlot: 0
   isRightHandSlot: 1

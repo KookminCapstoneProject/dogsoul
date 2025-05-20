@@ -8,25 +8,29 @@ public class FireballMove : MonoBehaviour
     [SerializeField] float speed = 15f;
     [SerializeField] float lifeTime = 5f;
 
+    public AudioClip fireaball;
+    [Range(0, 1)] public float volume=0.5f;
+
     Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;    // Á÷Á¢ À§Ä¡ Á¦¾î
+        rb.isKinematic = true;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
     }
 
     public void Shot()
     {
-        // ¹ß»ç Å¸ÀÌ¹Ö¿¡ ÄÚ·çÆ¾ ½ÃÀÛ
+        // ï¿½ß»ï¿½ Å¸ï¿½Ì¹Ö¿ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ï¿½
+        AudioSource.PlayClipAtPoint(fireaball, transform.position, volume);
         StartCoroutine(MoveCoroutine());
     }
 
     IEnumerator MoveCoroutine()
     {
         float elapsed = 0f;
-        Vector3 dir = transform.forward;   // ¹ß»ç ¼ø°£ ¹æÇâ °íÁ¤
+        Vector3 dir = transform.forward;   // ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         while (elapsed < lifeTime)
         {
@@ -34,9 +38,9 @@ public class FireballMove : MonoBehaviour
             rb.MovePosition(next);
 
             elapsed += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate(); // ¹°¸® ÇÁ·¹ÀÓ¸¶´Ù ÇÑ ¹ø
+            yield return new WaitForFixedUpdate(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
         }
 
-        Destroy(gameObject);  // Ç®¸µÀÌ¸é SetActive(false)
+        Destroy(gameObject);  // Ç®ï¿½ï¿½ï¿½Ì¸ï¿½ SetActive(false)
     }
 }

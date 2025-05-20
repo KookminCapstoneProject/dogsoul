@@ -27,6 +27,12 @@ abstract public class BossController : MonoBehaviour
     [SerializeField] protected float attackCoolMin = 1f;
     [SerializeField] protected float attackCoolMax = 2f; // random max
 
+    public AudioClip attackSound;
+    public AudioClip jumpSound;
+    public AudioClip stompSound;
+    public AudioClip crashSound;
+    [Range(0, 1)] float volume = 0.5f;
+
 
     protected Animator animator;
     protected Vector3 spawnPosition;
@@ -193,6 +199,8 @@ abstract public class BossController : MonoBehaviour
         float duration = 1.1f;
         float time = 0f;
 
+        AudioSource.PlayClipAtPoint(jumpSound, transform.position, volume);
+
         while (time < duration)
         {
             float t = time / duration;
@@ -217,6 +225,8 @@ abstract public class BossController : MonoBehaviour
     {
         float damageRadius = 10f;
         animator.SetBool("IsInteracting", true);
+
+        AudioSource.PlayClipAtPoint(crashSound, transform.position, volume);
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
         foreach (var hit in hitColliders)

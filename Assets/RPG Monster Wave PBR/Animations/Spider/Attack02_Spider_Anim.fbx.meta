@@ -304,7 +304,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.22102425
-        functionName: EnableAttack
+        functionName: PlayAttackSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 82bafb516cb3e3d4996fd9a99db1b761,
           type: 3}
