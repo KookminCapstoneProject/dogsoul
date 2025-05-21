@@ -56,7 +56,7 @@ public class Opening : MonoBehaviour
                 for (int i = 0; i <= strTypingLength; i++) // 한국어 타이핑
                 {
                     texts[t].text = pages[index].scripts[t].Typing(i);
-                    yield return new WaitForSeconds(0.03f);
+                    yield return new WaitForSeconds(0.015f);
                 }
                 yield return new WaitForSeconds(0.5f);
             }
