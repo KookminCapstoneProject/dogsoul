@@ -2239,6 +2239,8 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackClip: {fileID: 8300000, guid: f84cb1995efc2af46bb32adcc7b19452, type: 3}
+  volume: 0.5
   attackCollider: {fileID: 0}
 --- !u!114 &7108325178308011229
 MonoBehaviour:

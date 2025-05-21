@@ -8084,6 +8084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_03
       objectReference: {fileID: 0}
+    - target: {fileID: 874280139, guid: b60762046a9d05a4bbc56c7b385f41fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5203928409636885487, guid: b60762046a9d05a4bbc56c7b385f41fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30261,6 +30265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallPart_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531214414419180657, guid: dc91d64e01b35e04fa505c980aa76d03,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7414095471408627529, guid: dc91d64e01b35e04fa505c980aa76d03,
         type: 3}
@@ -57872,18 +57881,18 @@ PrefabInstance:
     - target: {fileID: 4491101124362963280, guid: 21a5531df95220c49b39a1ebca93d1ef,
         type: 3}
       propertyPath: monsterSpawnArray.keys.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4491101124362963280, guid: 21a5531df95220c49b39a1ebca93d1ef,
         type: 3}
       propertyPath: monsterSpawnArray.values.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4491101124362963280, guid: 21a5531df95220c49b39a1ebca93d1ef,
         type: 3}
       propertyPath: monsterSpawnArray.keys.Array.data[0]
       value: 
-      objectReference: {fileID: 4856007886534787365, guid: f30949b363e3c9c4d8b0ade4fdc8e9f8,
+      objectReference: {fileID: 4999621873376425347, guid: 55352424d5031b147a63d316e845abb2,
         type: 3}
     - target: {fileID: 4491101124362963280, guid: 21a5531df95220c49b39a1ebca93d1ef,
         type: 3}

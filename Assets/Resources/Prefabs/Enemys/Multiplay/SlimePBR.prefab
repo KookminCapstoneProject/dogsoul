@@ -1009,6 +1009,8 @@ MonoBehaviour:
   waypointDwellingTime: 2
   waypointTolerance: 2
   fadeTime: 3
+  attackClip: {fileID: 8300000, guid: f84cb1995efc2af46bb32adcc7b19452, type: 3}
+  volume: 0.5
   attackCollider: {fileID: 0}
 --- !u!114 &8147133527872459278
 MonoBehaviour:
@@ -1108,8 +1110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTarget: {fileID: 0}
-  attackClip: {fileID: 8300000, guid: f84cb1995efc2af46bb32adcc7b19452, type: 3}
-  volume: 0.5
 --- !u!1 &8602541544047584010
 GameObject:
   m_ObjectHideFlags: 0

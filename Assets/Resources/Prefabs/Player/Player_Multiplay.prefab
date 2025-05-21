@@ -1122,8 +1122,8 @@ MonoBehaviour:
   _useItemSpeed: 1.5
   _sprintStaminaUsage: 10
   _dodgeStaminaUsage: 20
-  _dashDuration: 0.2
-  _dashMaxAmount: 5
+  _dashDuration: 0.3
+  _dashMaxAmount: 15
   _ghostDuration: 0.15
   fadeTime: 3
   animationHandler: {fileID: 651672004039699749}

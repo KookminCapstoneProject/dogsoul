@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemModelPosition: {fileID: 1069956836016222504}
+  pickupSound: {fileID: 0}
+  pickupVolume: 0
   itemIcon: {fileID: 0}
   quantity: 1
   durability: 1
