@@ -113,6 +113,15 @@ public class PlayerStatusController : Singleton<PlayerStatusController>
 
     public void SetDictionaryKey()
     {
+        itemBuffStatus["Hp"] = 0;
+        itemBuffStatus["Sp"] = 0;
+        itemBuffStatus["Ap"] = 0;
+        itemBuffStatus["Wp"] = 0;
+
+        if (playerStatusValue.ContainsKey("Hp"))
+        {
+            return;
+        }
         playerStatusValue["Exp"] = 0;
         playerStatusValue["Hp"] = 10;
         playerStatusValue["Sp"] = 10;
@@ -124,11 +133,6 @@ public class PlayerStatusController : Singleton<PlayerStatusController>
         realValue["Sp"] = 10;
         realValue["Ap"] = 10;
         realValue["Wp"] = 10;
-
-        itemBuffStatus["Hp"] = 0;
-        itemBuffStatus["Sp"] = 0;
-        itemBuffStatus["Ap"] = 0;
-        itemBuffStatus["Wp"] = 0;
     }
 
 
