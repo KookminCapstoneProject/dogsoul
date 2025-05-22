@@ -21,7 +21,7 @@ MonoBehaviour:
   isUse: 1
   containerValue: 0
   maxQuantity: 3
-  price: 0
+  price: 200
   maxItemDurability: 1
   weaponStats: {fileID: 0}
   effectList:

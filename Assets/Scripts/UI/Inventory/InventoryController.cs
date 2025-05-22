@@ -596,7 +596,8 @@ public class InventoryController : Singleton<InventoryController>
     {
         PlayerState.Instance.ChangeState(PlayerState.State.Inventory);
         chestItemPanel.gameObject.SetActive(false);
-        storeItemPanel.gameObject.SetActive(true);
+        storeCanvas.gameObject.SetActive(true);
+        //storeItemPanel.gameObject.SetActive(true);
     }
 
     public void SetPlayerInventory()
