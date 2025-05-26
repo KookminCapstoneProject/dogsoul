@@ -229,6 +229,8 @@ public class NetworkController : Singleton<NetworkController>
         SceneController.Instance.LoadScene("Village");
     }
 
+
+
 }
 
 

@@ -26,6 +26,8 @@ public class PlayerDeadPanel : MonoBehaviour
     private IEnumerator ReadyDeadPanel(float time)
     {
         yield return new WaitForSeconds(time);
+        NetworkController.Instance.LeaveRoom();
+        NetworkController.Instance.LeaveLobby();
         StartCoroutine(FadeToBlack());
     }
 
