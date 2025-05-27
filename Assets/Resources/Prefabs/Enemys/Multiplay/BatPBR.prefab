@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ed75e02b84de441a257ddf5f541d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 5827531663527092147}
   state: 0
 --- !u!114 &5827531663527092147
 MonoBehaviour:
@@ -927,6 +927,18 @@ MonoBehaviour:
   hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
+  spawnItemList:
+    keys:
+    - {fileID: 11400000, guid: b6f67dc98e7ba52479bf94ce16ff5e26, type: 2}
+    - {fileID: 11400000, guid: e58bb2b6f045fad41b7b71a3bde6d307, type: 2}
+    - {fileID: 11400000, guid: 184b307c36898be45862501e2a297f3e, type: 2}
+    - {fileID: 11400000, guid: 09a2b303059b50b4e9360cf4d990bd6c, type: 2}
+    values:
+    - 0.1
+    - 0.2
+    - 0.1
+    - 1
+    foldout: 1
 --- !u!114 &5381121236124047874
 MonoBehaviour:
   m_ObjectHideFlags: 0

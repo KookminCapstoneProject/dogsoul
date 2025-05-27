@@ -366,6 +366,10 @@ MonoBehaviour:
   hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
+  spawnItemList:
+    keys: []
+    values: []
+    foldout: 0
   bossController: {fileID: 1070621968950360431}
 --- !u!114 &2497801706288981451
 MonoBehaviour:

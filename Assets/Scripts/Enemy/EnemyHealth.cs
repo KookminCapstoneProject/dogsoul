@@ -15,6 +15,7 @@ public class EnemyHealth : Health
     public int enemyExp;
     protected PhotonView photonView;
     [SerializeField] protected float removeTime = 5.0f;
+    [SerializeField] public SerializableArray<ItemData, float> spawnItemList;
 
     protected void Awake()
     {
@@ -73,6 +74,8 @@ public class EnemyHealth : Health
         {
             enemyState.ChangeState(EnemyState.State.Die);
             photonView.RPC(nameof(ReceiveDieState), RpcTarget.OthersBuffered);
+            Debug.Log("dropItem test");
+            SpawnDropItem();
         }
     }
 
@@ -86,6 +89,24 @@ public class EnemyHealth : Health
         Transform player = this.GetComponent<EnemyController>().target;
         player.GetComponent<PlayerGetStatus>().GetExpFromEnemy(enemyExp);
         StartCoroutine(RemoveMonsterBody());
+    }
+
+    private void SpawnDropItem()
+    {
+        Debug.Log($"Monster dropItem Test {spawnItemList}");
+        foreach(var dic in spawnItemList)
+        {
+            float randomValue = UnityEngine.Random.Range(0f, 1f);
+            Debug.Log($"for test {randomValue} {dic.Value}");
+            if (randomValue <= dic.Value)
+            {
+                
+                Item item = new Item(dic.Key, dic.Key.maxQuantity, dic.Key.maxItemDurability);
+                GameObject dropItemGo = InventoryController.Instance.GetCreateDropItem(item);
+                dropItemGo.transform.position = gameObject.transform.position;
+            }
+            
+        }
     }
 
     protected IEnumerator WaitForParticleEnd(ParticleSystem particle, Vector3 position)
