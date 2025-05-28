@@ -259,8 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3651cb20e0721a46ab7f23e2b343b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 8300000, guid: 5c427cf6eec2cf24b8d713675fca5613, type: 3}
-  openVolume: 1
   animator: {fileID: 3506876575188873199}
 --- !u!95 &3506876575188873199
 Animator:
@@ -391,6 +389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727101947464472807, guid: 401de5257d772024eb5391dba1b573cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

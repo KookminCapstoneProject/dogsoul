@@ -294,8 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3651cb20e0721a46ab7f23e2b343b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 8300000, guid: 01ff56e2bcca2a4408de6fd707ff1999, type: 3}
-  openVolume: 1
   animator: {fileID: 7952588692411489888}
 --- !u!114 &2730635287069112709
 MonoBehaviour:
@@ -391,6 +389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036818867260378062, guid: bed846ee67b04df48b9c452367caf2e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2735676892212459810, guid: bed846ee67b04df48b9c452367caf2e9,
         type: 3}

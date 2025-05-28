@@ -59,6 +59,7 @@ public class VillageManager : MonoBehaviour
             SpawnPlayer();
             SynchronizeDBtoCache();
             InventoryController.Instance.SetPlayerInventory();
+            PlayerState.Instance.ChageStateHard(PlayerState.State.Idle);
             return;
         }
         Hp_Sp_Canvas.SetActive(false);

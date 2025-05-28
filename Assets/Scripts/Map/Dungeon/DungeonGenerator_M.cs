@@ -27,8 +27,10 @@ public class DungeonGenerator_M : DungeonGenerator
             PlayerSpawn();
             SpawnRandomObject();
             BossRoomSetting();
+            Debug.Log($"potalCount {potalCount}");
             for(int i = 0; i < potalCount; i++)
             {
+                Debug.Log($"potal test");
                 SetEscapePotal();
             }
             
@@ -292,24 +294,33 @@ public class DungeonGenerator_M : DungeonGenerator
         int totalTryCount = 100;
         int tryCount = 0;
         DungeonPart escapeRoom = null;
+        Debug.Log($"test 1");
         while (tryCount < totalTryCount && escapeRoom == null)
         {
+            Debug.Log($"test 2");
             int randomIndex = UnityEngine.Random.Range(0, generatedRooms.Count);
             escapeRoom = generatedRooms[randomIndex];
-            if (escapeRoom.roomUse == DungeonPart.RoomUse.PlayerSpawn ||
+            if (/*escapeRoom.roomUse == DungeonPart.RoomUse.PlayerSpawn ||*/
                 escapeRoom.dungeonPartType == DungeonPart.DungeonPartType.Hallway ||
                 escapeRoom.dungeonPartType == DungeonPart.DungeonPartType.BossRoom )
             {
+                Debug.Log($"test 6");
                 escapeRoom = null;
                 tryCount++;
                 continue;
             }
+            Debug.Log($"test 3");
             if (escapeRoom.escapePotalSpawnPoints.Count == 0) { escapeRoom = null; tryCount++; continue; }
             int randomEscapeIndex = UnityEngine.Random.Range(0, escapeRoom.escapePotalSpawnPoints.Count);
+            Debug.Log($"test 4");
             if (escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].isUse) { escapeRoom = null; tryCount++; continue; }
-            escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].isUse = true;
-            PhotonNetwork.InstantiateRoomObject($"Prefabs/Map/MultiPlay/Potal/EscapePotal",
-                escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].transform.position, escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].transform.rotation);
+            escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].SetUse(true);
+            
+            
+            /*PhotonNetwork.InstantiateRoomObject($"Prefabs/Map/MultiPlay/Potal/EscapePotal",
+                escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].transform.position, escapeRoom.escapePotalSpawnPoints[randomEscapeIndex].transform.rotation);*/
+            
+            Debug.Log($"test 5");
             break;
         }
     }
@@ -326,6 +337,10 @@ public class DungeonGenerator_M : DungeonGenerator
     {
         UIFadeController.Instance.FadeToClear();
     }
+
+
+    
+
 
 
 

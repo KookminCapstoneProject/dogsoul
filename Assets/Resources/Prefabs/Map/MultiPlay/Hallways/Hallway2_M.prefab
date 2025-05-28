@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needRoomType: 0
-  entrance: {fileID: 0}
-  wallObject: {fileID: 0}
+  entrance: {fileID: 1235424060871354509}
+  wallObject: {fileID: 2931843854665386379, guid: 4d6c150a6e559824aa7e32d437a61502,
+    type: 3}
   needRoomArray:
     keys: 010000000200000003000000
     values:
@@ -54,6 +55,7 @@ MonoBehaviour:
     - 0.7
     - 1
     foldout: 1
+  dontSetRoom2Entry: 0
   testCube: {fileID: 7798680238382481399}
 --- !u!1 &1163112709984964059
 GameObject:
@@ -269,14 +271,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needRoomType: 0
-  entrance: {fileID: 0}
-  wallObject: {fileID: 0}
+  entrance: {fileID: 7721689822620010441}
+  wallObject: {fileID: 2931843854665386379, guid: 4d6c150a6e559824aa7e32d437a61502,
+    type: 3}
   needRoomArray:
     keys: 0100000003000000
     values:
     - 0.7
     - 1
     foldout: 1
+  dontSetRoom2Entry: 0
   testCube: {fileID: 6467488330696543673}
 --- !u!1 &5722230678197234652
 GameObject:
@@ -345,6 +349,7 @@ MonoBehaviour:
   colliderList:
   - {fileID: 3798584276035752093}
   playerSpawnPoints: []
+  escapePotalSpawnPoints: []
   entryPoints:
   - {fileID: 6768374677836459343}
   - {fileID: 8251238296156213461}
@@ -433,14 +438,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needRoomType: 0
-  entrance: {fileID: 0}
-  wallObject: {fileID: 0}
+  entrance: {fileID: 9062498311142011640}
+  wallObject: {fileID: 2931843854665386379, guid: 4d6c150a6e559824aa7e32d437a61502,
+    type: 3}
   needRoomArray:
     keys: 0100000003000000
     values:
     - 0.5
     - 1
     foldout: 1
+  dontSetRoom2Entry: 0
   testCube: {fileID: 3041282753657335333}
 --- !u!1001 &156748342945325144
 PrefabInstance:
@@ -725,6 +732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914469935603822739, guid: 0512c6bcb10e78442813d0efd5e03e43,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1103,8 +1115,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6604073288508569822}
   m_SourcePrefab: {fileID: 100100000, guid: 8823d5c4d53b2714bb6857eed8587239, type: 3}
+--- !u!1 &1235424060871354509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+    type: 3}
+  m_PrefabInstance: {fileID: 3602067962485170359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6604073288508569822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235424060871354509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &1904682961425756727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3140089442064863872, guid: 8823d5c4d53b2714bb6857eed8587239,
@@ -1324,7 +1368,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 31350909630554721}
   m_SourcePrefab: {fileID: 100100000, guid: 8823d5c4d53b2714bb6857eed8587239, type: 3}
 --- !u!4 &6945433910758317427 stripped
 Transform:
@@ -1332,6 +1380,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5472143898409734131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7721689822620010441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+    type: 3}
+  m_PrefabInstance: {fileID: 5472143898409734131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &31350909630554721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721689822620010441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &5539280383876895300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1617,6 +1693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCube (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3914469935603822739, guid: 0512c6bcb10e78442813d0efd5e03e43,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1700,7 +1781,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 889260222522552104}
   m_SourcePrefab: {fileID: 100100000, guid: 8823d5c4d53b2714bb6857eed8587239, type: 3}
 --- !u!4 &8543230217819400258 stripped
 Transform:
@@ -1708,6 +1793,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6709360877322713794}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9062498311142011640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2366648310632761402, guid: 8823d5c4d53b2714bb6857eed8587239,
+    type: 3}
+  m_PrefabInstance: {fileID: 6709360877322713794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889260222522552104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062498311142011640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &6839936456765558688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2212,6 +2325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestCube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914469935603822739, guid: 0512c6bcb10e78442813d0efd5e03e43,
+        type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

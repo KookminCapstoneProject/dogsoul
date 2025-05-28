@@ -27,4 +27,21 @@ public class EscapePotal : MonoBehaviour
 
         }
     }
+
+
+    [SerializeField] private PhotonView photonView;
+
+    public void SetUse(bool use)
+    {
+        isUse = use;
+        Debug.Log($"RPC test {use}");
+        photonView.RPC(nameof(SetActive), RpcTarget.All, use);
+    }
+
+    [PunRPC]
+    private void SetActive(bool active)
+    {
+        Debug.Log($"RPC receive test {active}");
+        gameObject.SetActive(active);
+    }
 }

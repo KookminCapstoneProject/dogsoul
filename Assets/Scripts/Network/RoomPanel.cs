@@ -28,4 +28,12 @@ public class RoomPanel : MonoBehaviour
     {
         NetworkController.Instance.StartLevel();
     }
+
+    public void ClearPlayerPanel()
+    {
+        foreach(Transform child in readyPlayerPanel)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

@@ -12,7 +12,7 @@ public class MonsterRandomSpawner_M : MonsterRandomSpawner
         foreach (var dictionary in monsterSpawnArray)
         {
             float randomValue = UnityEngine.Random.Range(0f, 1f);
-            if (randomValue <= dictionary.Value) { PhotonNetwork.InstantiateRoomObject($"Prefabs/Enemys/Multiplay/{dictionary.Key.name}", transform.position, Quaternion.identity); }
+            if (randomValue <= dictionary.Value) { PhotonNetwork.InstantiateRoomObject($"Prefabs/Enemys/Multiplay/{dictionary.Key.name}", transform.position, Quaternion.identity); break; }
         }
     }
 

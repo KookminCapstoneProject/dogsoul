@@ -21,7 +21,7 @@ public class ItemRandomSpawner_M : ItemRandomSpawner
     {
         foreach(var data in spawnArray)
         {
-            if (data.Value > Random.Range(0, 1))
+            if (data.Value > Random.Range(0f, 1f))
             {
                 //TODO CreateDropItem
                 ItemData itemData = data.Key;

@@ -101,6 +101,8 @@ MonoBehaviour:
   BrokenObject: {fileID: 8423209577567894613}
   FixedObject: {fileID: 6106709945043672145}
   removeTime: 5
+  isBroken: 0
+  interactGo: {fileID: 0}
 --- !u!1001 &276529935392016771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589260562571441622, guid: 6a9714ba491d76647b560b652629e604,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8969198302455656300, guid: 6a9714ba491d76647b560b652629e604,
         type: 3}

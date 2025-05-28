@@ -57,6 +57,11 @@ public class NetworkController : Singleton<NetworkController>
     protected override void Awake()
     {
         base.Awake();
+        //EnterLoginScene();
+    }
+
+    public void EnterLoginScene()
+    {
         AllPanelActiveFalse();
         playModeSelectPanel.SetActive(true);
 
@@ -226,6 +231,7 @@ public class NetworkController : Singleton<NetworkController>
     private void EnterVillageAction()
     {
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
         SceneController.Instance.LoadScene("Village");
     }
 

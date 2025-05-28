@@ -213,6 +213,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1983907253622805588, guid: 2d2eb460d6235d34b841f70ce684c587,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2057427207728141888, guid: 2d2eb460d6235d34b841f70ce684c587,
         type: 3}
       propertyPath: m_Layer
@@ -363,8 +368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3651cb20e0721a46ab7f23e2b343b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 8300000, guid: 01ff56e2bcca2a4408de6fd707ff1999, type: 3}
-  openVolume: 1
   animator: {fileID: 1287566550349311855}
 --- !u!95 &1287566550349311855
 Animator:
