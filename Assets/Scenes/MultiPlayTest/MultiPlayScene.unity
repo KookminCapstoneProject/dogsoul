@@ -533,23 +533,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413731b97d01c574aa699d2681e8556e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noOfRooms: 1
+  noOfRooms: 5
   potalCount: 1
   bossRoom: {fileID: 2305435}
   entrance: {fileID: 0}
-  rooms: []
-  smallRooms: []
-  stairs: []
+  rooms:
+  - {fileID: 5660710018642529458, guid: 86109009ca01df24da409de014b07303, type: 3}
+  - {fileID: 2484360320992799949, guid: f31f4166346291c48945e65eea658f0f, type: 3}
+  - {fileID: 2597701822076250434, guid: 0cd53f0f8ca8f6048b6dd97e7bc6eed5, type: 3}
+  smallRooms:
+  - {fileID: 2933166231360555509, guid: fc65051beb05c244e9c616e57a6d16af, type: 3}
+  - {fileID: 4690462540910813970, guid: 8fb90339ad9fc924ead4be3ffee5be2c, type: 3}
+  stairs:
+  - {fileID: 1382099109642499120, guid: 89500807684b8904c8b73986d9b1dcd1, type: 3}
   specialRooms: []
   alternateEntrances: []
-  hallways: []
+  hallways:
+  - {fileID: 5722230678197234652, guid: 084f42c73cd58b54badcd8e6439eadc9, type: 3}
+  - {fileID: 503321049714542921, guid: 522012d61e2e404418c3f7d1a303fdd2, type: 3}
+  - {fileID: 2136317762696972953, guid: 2621d380fed00d948925ca9241eaa45a, type: 3}
   roomsLayerMask:
     serializedVersion: 2
     m_Bits: 8
   dontSelectedEntryGO: {fileID: 0}
   surface: {fileID: 0}
   mainCmera: {fileID: 0}
-  entranceRoomName: TestRoom
+  entranceRoomName: TrapMap_M
 --- !u!114 &633129431
 MonoBehaviour:
   m_ObjectHideFlags: 0

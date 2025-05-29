@@ -141,4 +141,23 @@ public class EnemyHealth : Health
         currentHealth -= damage;
         UpdateHpBar();
     }
+
+
+    [ContextMenu("Initialize Default Spawn Items")]
+    private void InitForEditor()
+    {
+        InitializeSpawnItems();
+    }
+
+
+    public void InitializeSpawnItems()
+    {
+        spawnItemList = new SerializableArray<ItemData, float>();
+
+        var defaultItems = Resources.LoadAll<ItemData>("ItemData/Agilitypotion_S");
+        foreach (var item in defaultItems)
+        {
+            spawnItemList.Add(item, 1.0f); // 기본 값 설정
+        }
+    }
 }

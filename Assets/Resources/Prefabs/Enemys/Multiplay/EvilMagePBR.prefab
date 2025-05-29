@@ -1408,6 +1408,20 @@ MonoBehaviour:
   hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
+  spawnItemList:
+    keys:
+    - {fileID: 11400000, guid: b6f67dc98e7ba52479bf94ce16ff5e26, type: 2}
+    - {fileID: 11400000, guid: 43b0acb1a1ae83e428621d77a27cb40e, type: 2}
+    - {fileID: 11400000, guid: e58bb2b6f045fad41b7b71a3bde6d307, type: 2}
+    - {fileID: 11400000, guid: c797c6ad57b9c8f4490cc361f7ee1dc2, type: 2}
+    - {fileID: 11400000, guid: be99ab379bc000b459b66b0c43e75793, type: 2}
+    values:
+    - 0.1
+    - 0.1
+    - 0.2
+    - 0.2
+    - 0.8
+    foldout: 1
 --- !u!136 &3070134187806431716
 CapsuleCollider:
   m_ObjectHideFlags: 0

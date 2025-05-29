@@ -465,6 +465,10 @@ MonoBehaviour:
   hitVolume: 0.5
   enemyExp: 0
   removeTime: 5
+  spawnItemList:
+    keys: []
+    values: []
+    foldout: 1
 --- !u!114 &131999109444864166
 MonoBehaviour:
   m_ObjectHideFlags: 0

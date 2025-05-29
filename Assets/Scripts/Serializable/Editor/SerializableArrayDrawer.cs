@@ -80,10 +80,13 @@ public class SerializableArrayDrawer : PropertyDrawer
         }
         else if (keyProperty.propertyType == SerializedPropertyType.ObjectReference)
         {
+            Debug.Log("editor test");
             if (keyProperty.objectReferenceValue == null)
             {
-                keyProperty.objectReferenceValue = ScriptableObject.CreateInstance<ItemData>();
+                Debug.Log("editor tes1t");
+                keyProperty.objectReferenceValue = Resources.Load<ItemData>("ItemData/Agilitypotion_S");
             }
+            //keyProperty.objectReferenceValue = null;
         }
 
         // Set default value
