@@ -79,7 +79,8 @@ public class NetworkController : Singleton<NetworkController>
 
     public void EnterSinglePlayScene()
     {
-        SceneController.Instance.LoadScene(singleplaySceneName);
+        networkCallback.CreateRoom("SinglePlay", PlayerStatusController.Instance.playerNickname, false, "test");
+        //SceneController.Instance.LoadScene(singleplaySceneName);
     }
 
     public void EnterPhotonServer()
