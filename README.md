@@ -13,6 +13,11 @@
 
 <br/>
 
+## 시연
+[![Dogsoul 소개영상](https://img.youtube.com/vi/OtntBaEmVDU/0.jpg)](https://youtu.be/OtntBaEmVDU)
+
+<br/>
+
 ## 목차
 
 - [프로젝트 소개](#프로젝트-소개)
